@@ -1,0 +1,103 @@
+/* FONT IMPORT */
+/* All fonts from fonts.google.com */
+
+.syne-normal {
+    font-family: "Syne", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .syne-semibold {
+      font-family: "Syne", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+    }
+  
+  .titillium-web-light {
+      font-family: "Titillium Web", system-ui;
+      font-weight: 300;
+      font-style: normal;
+    }
+    
+    .titillium-web-regular {
+      font-family: "Titillium Web", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    .titillium-web-semibold {
+      font-family: "Titillium Web", system-ui;
+      font-weight: 600;
+      font-style: normal;
+    }
+    
+    .titillium-web-bold {
+      font-family: "Titillium Web", system-ui;
+      font-weight: 700;
+      font-style: normal;
+    }
+  
+  
+  
+  
+  
+  /* CSS RESET AND NORMALIZATION   CSS CSS CSS CSS CSS CSS CSS CSS CSS  */
+  /* Remove padding */
+  body, ul, p, a {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+  
+  /* Remove hyperlink text decoration */
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
+  
+  /* Remove bullets from list items */
+  ul {
+      list-style-type: none;
+  }
+  
+  
+  
+  
+  
+  /* THEME TH TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH  TH   */
+  
+  :root {
+      /* Colors */
+      --background-color: #00302a;
+      --background-color-darker: #001c17;
+      --accent-color: #07463f;
+      --valid-color: #e1ff67;
+      --font-default-color: #ffffff;
+  }
+  
+  body {
+      /* Font and color declarations */
+      background-color: var(--background-color, #0F220F);
+  }
+  
+  h1, h2, h3, h4, h5, a, p, input {
+      /* Font and color declarations */
+      font-family: Syne, sans-serif;
+      color: var(--font-default-color,#ffffff);
+  
+      /* CBPM */
+      padding: 0;
+      margin: 0;
+  }
+  
+  p {
+      /* Font and color declarations */
+      font-family: Titillium Web, sans-serif;
+  }
+  
+  a {
+      /* Font and color declarations */
+      color: var(--valid-color, white);
+  }
