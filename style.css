@@ -101,3 +101,81 @@
       /* Font and color declarations */
       color: var(--valid-color, white);
   }
+
+
+
+
+
+/* LAYOUT GRID  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG   */
+.layout-grid {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.header-container {
+    /* Display Declarations */
+    grid-area: 1 / 1 / 2 / -1;
+
+    /* DEBUG BORDERS */
+    border: 2px solid red;
+}
+
+.sidebar-container {
+    /* Display Declarations */
+    grid-area: 2 / 1 / -2 / 2;
+
+    /* DEBUG BORDERS */
+    border: 2px solid green;
+}
+
+.content-container {
+    /* Display Declarations */
+    grid-area: 2 / 2 / -2 / -1;
+
+    /* DEBUG BORDERS */
+    border: 2px solid blue;
+}
+
+.footer-container {
+    /* Display Declarations */
+    grid-area: -2 / 1 / -1 / -1;
+
+    /* DEBUG BORDERS */
+    border: 2px solid white;
+}
+
+
+
+
+
+/* CONTENT LAYOUT CONTAINER CLC CLC CLC CLC CLC CLC CLC CLC CLC CLC  */
+.content-layout-container {
+    display: grid;
+    overflow: auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+
+    gap: 12px;
+
+    height: 100%;
+    width: 100%;
+
+    /* DEBUG BORDERS */
+    border: 2px solid magenta;
+}
+
+
+
+
+
+/* CONTENT CARD CC  CC  CC  CC  CC  CC  CC  CC  CC  CC  CC  CC  CC   */
+.content-card {
+    /* Display declarations */
+    /* display: grid; */
+
+    /* DEBUG BORDERS */
+    border: 2px solid cyan;
+}
