@@ -14,6 +14,8 @@ const authorInput = document.getElementById("author-text");
 const pageCountInput = document.getElementById("pagecount-number");
 const isReadInput = document.getElementById("is-read-checkbox");
 
+
+
 // CONSTRUCTORS
 function Book(id, title, author, pageCount, isRead, isDisplayed) {
     this.id = id;
@@ -44,11 +46,6 @@ addBookButton.addEventListener("click", () => {
     // Pop up modal dialog requesting information
     console.log("Creating modal dialog.");
     dialogBox.showModal();
-});
-
-let deleteBookButton = document.querySelector(".card-delete-button");
-deleteBookButton.addEventListener("click", () => {
-    alert("Deleted book.");
 });
 
 let dialogConfirmButton = document.getElementById("dialog-confirm");
@@ -133,7 +130,22 @@ function updateBookCards(index) {
         // // Create delete button
         let newCardDeleteButton = document.createElement("button");
         newCardDeleteButton.classList.add("card-delete-button");
+        newCardDeleteButton.dataset.id = counter;
         newCardDeleteButton.textContent = "Delete This Book";
+
+        // // // Add delete button event listening
+        newCardDeleteButton.addEventListener("click", () => {
+            console.log(newCardDeleteButton.dataset.id);
+            // // Capture the id, which matches the index of the book 
+            // to be deleted.
+            // // use splice() to delete that entry
+            // // delete the card and associated elements from the DOM
+            // // by likely deleting the parent element (see what 
+            // // happens).
+            // // It's important that elements be deleted *in place*
+            // // so as to avoid shifting all ID numbers and causing
+            // // mismatches.
+        });
 
         // Append new elements
         contentContainer.appendChild(newCardDiv);
@@ -147,6 +159,9 @@ function updateBookCards(index) {
         userLibrary[index].isDisplayed = true;    
     }
 };
+
+
+// W R I T E   U P
 
 // DESIRED BEHAVIOR
 // When user loads into page, a "default" template book should be 
