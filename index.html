@@ -31,7 +31,6 @@
         </div>
         <div class="content-container">
             <button class="add-book-button">Add Book</button>
-            <!-- <button class="display-button">Display Books</button> -->
             <div class="content-layout-container">
                 <div class="content-card">
                     <h3 class="card-title">Example Title</h3>
@@ -48,5 +47,32 @@
             </p>
         </div>    
     </div>
+
+    <!-- Modal Dialog Box for user input-->
+    <dialog id="book-info-dialog">
+        <form id = "dialog-form" action="" method="dialog">
+            <div class="form-body">
+                <!--Title-->
+                <label for="title-text">Title</label>
+                <input type="text" name="title-text" id="title-text">
+                
+                <!--Author-->
+                <label for="author-text">Author</label>
+                <input type="text" name="author-text" id="author-text">
+                
+                <!--Page Count-->
+                <label for="pagecount-number">Pages</label>
+                <input type="number" name="pagecount-number" id="pagecount-number">
+                
+                <!--Read Status-->
+                <label for="is-read-checkbox">Completed?</label>
+                <input type="checkbox" name="is-read-checkbox" id="is-read-checkbox">
+            </div>
+            <div class="dialog-buttons">
+                <button class="dialog-button" id="dialog-cancel" type="reset">Cancel</button>
+                <button class="dialog-button" id="dialog-confirm" type="submit">Confirm</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
