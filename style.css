@@ -1,44 +1,48 @@
 /* FONT IMPORT */
 /* All fonts from fonts.google.com */
 
-.syne-normal {
-    font-family: "Syne", sans-serif;
-    font-optical-sizing: auto;
+.crimson-text-regular {
+    font-family: "Crimson Text", serif;
     font-weight: 400;
     font-style: normal;
   }
   
-  .syne-semibold {
-      font-family: "Syne", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 600;
-      font-style: normal;
-    }
+  .crimson-text-semibold {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
   
-  .titillium-web-light {
-      font-family: "Titillium Web", system-ui;
-      font-weight: 300;
-      font-style: normal;
-    }
-    
-    .titillium-web-regular {
-      font-family: "Titillium Web", system-ui;
-      font-weight: 400;
-      font-style: normal;
-    }
-    
-    .titillium-web-semibold {
-      font-family: "Titillium Web", system-ui;
-      font-weight: 600;
-      font-style: normal;
-    }
-    
-    .titillium-web-bold {
-      font-family: "Titillium Web", system-ui;
-      font-weight: 700;
-      font-style: normal;
-    }
+  .crimson-text-bold {
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
   
+  .crimson-text-regular-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .crimson-text-semibold-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .crimson-text-bold-italic {
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .cinzel-regular {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
   
   
   
@@ -70,22 +74,23 @@
   
   :root {
       /* Colors */
-      --background-color: #00302a;
-      --background-color-darker: #001c17;
-      --accent-color: #07463f;
+      --background-color: #FEF6D0;
+      --background-color-darker: #7B5832;
+      --accent-color: #9B2A0F;
       --valid-color: #e1ff67;
-      --font-default-color: #ffffff;
+      --font-default-color: #800D04;
+      --font-alternative-color: #50483C;
   }
   
   body {
       /* Font and color declarations */
-      background-color: var(--background-color, #0F220F);
+      background-color: var(--background-color, white);
   }
   
   h1, h2, h3, h4, h5, a, p, input {
       /* Font and color declarations */
-      font-family: Syne, sans-serif;
-      color: var(--font-default-color,#ffffff);
+      font-family: "Cinzel", serif;
+      color: var(--font-default-color, darkred);
   
       /* CBPM */
       padding: 0;
@@ -94,12 +99,12 @@
   
   p {
       /* Font and color declarations */
-      font-family: Titillium Web, sans-serif;
+      font-family: "Crimson Text", serif;
   }
   
   a {
       /* Font and color declarations */
-      color: var(--valid-color, white);
+      color: var(--font-alternative-color, white);
   }
 
 
@@ -108,31 +113,34 @@
 
 /* LAYOUT GRID  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG  LG   */
 .layout-grid {
+    /* Display declarations */
     display: grid;
-    height: 100vh;
-    width: 100vw;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(10, 1fr);
+
+    /* Transforms and constraints */
+    height: 100vh;
+    width: 100vw;
 }
 
 .header-container {
-    /* Display Declarations */
+    /* Display declarations */
     grid-area: 1 / 1 / 2 / -1;
 
     /* DEBUG BORDERS */
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .sidebar-container {
-    /* Display Declarations */
+    /* Display declarations */
     grid-area: 2 / 1 / -2 / 2;
 
     /* DEBUG BORDERS */
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .content-container {
-    /* Display Declarations */
+    /* Display declarations */
     grid-area: 2 / 2 / -2 / -1;
 
     /* DEBUG BORDERS */
@@ -140,13 +148,81 @@
 }
 
 .footer-container {
-    /* Display Declarations */
+    /* Display declarations */
     grid-area: -2 / 1 / -1 / -1;
 
     /* DEBUG BORDERS */
     border: 2px solid white;
 }
 
+
+
+/* HEADER STYLE   H   H   H   H   H   H   H   H   H   H   H   H   H  */
+.header-container {
+    /* Display declarations */
+    display: flex;
+    justify-content: space-between;
+
+    /* Font and color declarations */
+    background-color: var(--background-color-darker, brown);
+
+    /* CBPM */
+    padding: 8px 50px;
+}
+
+.header-container h1 {
+    /* Display declarations */
+    align-self: center;
+    
+    /* Font and color declarations */
+    font-size: 3rem;
+    color: var(--background-color);
+}
+
+.header-navlinks, .header-navlinks-list {
+    /* Display declarations */
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    /* Font and color declarations */
+    color: var(--background-color)
+}
+
+
+
+/* SIDEBAR STYLE    SB  SB  SB  SB  SB  SB  SB  SB  SB  SB  SB  SB   */
+.sidebar-container {
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* Font and color declarations */
+    background-color: var(--);
+
+    /* CBPM */
+    border-right: 4px solid var(--font-alternative-color);
+    padding: 12px 0px 0px 50px;
+}
+
+.sidebar-container h2 {
+    /* Font and color declarations */
+    font-size: minmax(1rem, 2rem);
+
+    /* CBPM */
+    padding-right: 8px;
+}
+
+.sidebar-navlinks, .sidebar-navlinks-list {
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    /* Font and color declarations */
+    color: var(--font-default-color);
+}
 
 
 
