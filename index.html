@@ -75,5 +75,17 @@
             </div>
         </form>
     </dialog>
+
+    <!-- Confirmation modal dialog for deleting books-->
+    <dialog id="delete-confirmation-dialog">
+        <p class="confirmation-message">
+            Delete <span id="book-to-be-deleted">Book Title</span> from your library?
+            This action cannot be undone.
+        </p>
+        <div class="dialog-buttons">
+            <button class="dialog-button" id="dialog-delete-cancel">Nah</button>
+            <button class="dialog-button" id="dialog-delete-confirm">Ban It to the Shadow Realm</button>
+        </div>
+    </dialog>
 </body>
 </html>

@@ -1,6 +1,7 @@
 // GLOBAL VARIABLES
 const userLibrary = [];
 let counter = 0;
+let idToDelete = null;
 
 
 
@@ -13,6 +14,7 @@ const titleInput = document.getElementById("title-text");
 const authorInput = document.getElementById("author-text");
 const pageCountInput = document.getElementById("pagecount-number");
 const isReadInput = document.getElementById("is-read-checkbox");
+const deleteDialogBox = document.getElementById("delete-confirmation-dialog");
 
 
 
@@ -58,6 +60,16 @@ cancelButton.addEventListener("click", () => {
     dialogBox.close();
 });
 
+const deleteCancelButton = document.getElementById("dialog-delete-cancel");
+deleteCancelButton.addEventListener("click", () => {
+    deleteDialogBox.close();
+});
+
+const deleteConfirmButton = document.getElementById("dialog-delete-confirm");
+deleteConfirmButton.addEventListener("click", () => {
+    deleteBook(idToDelete);
+});
+
 
 
 
@@ -67,7 +79,7 @@ cancelButton.addEventListener("click", () => {
 // FUNCTION: addBookToLibrary
 // DESCRIPTION: This function constructs a new instance of the Book
 // object, pushes that data to the library array, and forces a visual
-// refresh of the webpage, while resetting the modal form.
+// refresh of the webpage, afterwards resetting the modal form.
 function addBookToLibrary() {
     // Constructor
     let newBook = new Book(counter, titleInput.value, 
@@ -102,6 +114,7 @@ function updateBookCards(index) {
         // Create card div
         let newCardDiv = document.createElement("div");
         newCardDiv.classList.add("content-card");
+        newCardDiv.id = `card${index}`;
 
         // // Create title h3
         let newCardTitle = document.createElement("h3");
@@ -135,16 +148,7 @@ function updateBookCards(index) {
 
         // // // Add delete button event listening
         newCardDeleteButton.addEventListener("click", () => {
-            console.log(newCardDeleteButton.dataset.id);
-            // // Capture the id, which matches the index of the book 
-            // to be deleted.
-            // // use splice() to delete that entry
-            // // delete the card and associated elements from the DOM
-            // // by likely deleting the parent element (see what 
-            // // happens).
-            // // It's important that elements be deleted *in place*
-            // // so as to avoid shifting all ID numbers and causing
-            // // mismatches.
+            confirmDeletion(newCardDeleteButton.dataset.id);
         });
 
         // Append new elements
@@ -158,6 +162,43 @@ function updateBookCards(index) {
         // Set flag to avoid card duplication
         userLibrary[index].isDisplayed = true;    
     }
+};
+
+
+
+// FUNCTION: confirmDeletion
+// DESCRIPTION: This function pops up a custom modal dialog 
+// confirmation box.
+function confirmDeletion(id) {
+    // Set item for deletion
+    idToDelete = id;
+
+    // Customize book title in confirmation dialog
+    const deleteDialogBookTitle = document.getElementById("book-to-be-deleted");
+    deleteDialogBookTitle.textContent = userLibrary[id].title;
+
+    // Confirm deletion with user
+    deleteDialogBox.showModal();
+};
+
+
+
+// FUNCTION: deleteBook
+// DESCRIPTION: This function accepts an ID/index for a Book element in
+// the userLibrary array, and deletes it as well as its visual 
+// representation via the DOM.  DOM elements are deleted before array
+// elements to avoid displaying null or blank data.
+function deleteBook(id) {
+    // Delete content card before deleting content it references
+    let divToDelete = document.getElementById(`card${id}`);
+    divToDelete.replaceChildren();  // Delete children of the element
+    divToDelete.remove();           // Delete parent element
+
+    deleteDialogBox.close();
+
+    console.log(userLibrary);
+    userLibrary.splice(id,1, null);
+    console.log(userLibrary);
 };
 
 
