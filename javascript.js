@@ -255,3 +255,5 @@ function markBookAsRead(id) {
 // DISPLAYING BOOK CARDS
 // The books should all display in card format with the elements listed
 // above.
+
+//dialogBox.showModal();

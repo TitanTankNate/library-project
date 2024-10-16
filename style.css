@@ -43,6 +43,13 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  .cinzel-medium {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
   
   
   
@@ -77,6 +84,7 @@
       --background-color: #FEF6D0;
       --background-color-darker: #7B5832;
       --accent-color: #9B2A0F;
+      --accent-highlight-color: #CC3914;
       --valid-color: #e1ff67;
       --font-default-color: #800D04;
       --font-alternative-color: #50483C;
@@ -105,6 +113,11 @@
   a {
       /* Font and color declarations */
       color: var(--font-alternative-color, white);
+  }
+
+  button {
+    /* Font and color declarations */
+    font-family: "Crimson Text", serif;
   }
 
 
@@ -141,10 +154,15 @@
 
 .content-container {
     /* Display declarations */
+    display: flex;
+    flex-direction: column;
     grid-area: 2 / 2 / -2 / -1;
 
+    height: 100%;
+    width: 100%;
+
     /* DEBUG BORDERS */
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
 }
 
 .footer-container {
@@ -168,6 +186,7 @@
 
     /* CBPM */
     padding: 8px 50px;
+    box-shadow: 2px 2px 4px black;
 }
 
 .header-container h1 {
@@ -229,18 +248,48 @@
 
 /* CONTENT LAYOUT CONTAINER CLC CLC CLC CLC CLC CLC CLC CLC CLC CLC  */
 .content-layout-container {
+    /* Display declarations */
     display: grid;
-    overflow: auto;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-rows: repeat(3, 1fr);
+    overflow: scroll;
+    scrollbar-width: none;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
 
-    gap: 12px;
+    gap: 18px;
 
+    /* Transforms and constraints */
     height: 100%;
-    width: 100%;
+
+    /* CBPM */
+    padding: 0px 50px 50px 12px;
+    margin-top: 50px;
+    
 
     /* DEBUG BORDERS */
-    border: 2px solid magenta;
+    /* border: 2px solid magenta; */
+}
+
+.add-book-button {
+    /* Transforms and constraints */
+    position: fixed;
+    height: 36px;
+    width: fit-content;
+    align-content: center;
+
+    /* Font and color declarations */
+    font-size: 1.2rem;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+
+    /* CBPM */
+    border-radius: 5px;
+    padding: 4px 12px;
+    margin: 8px 0px 0px 12px
+}
+
+.add-book-button:hover {
+    /* Font and color declarations */
+    background-color: var(--accent-highlight-color);
 }
 
 
@@ -250,8 +299,93 @@
 /* CONTENT CARD CC  CC  CC  CC  CC  CC  CC  CC  CC  CC  CC  CC  CC   */
 .content-card {
     /* Display declarations */
-    /* display: grid; */
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+
+    /* Transforms and constraints */
+    height: 300px;
+    width: 200px;
+
+    /* Font and color declarations */
+    background-color: var(--background-color-darker);
+
+    /* CBPM */
+    border-radius: 12px;
+    border-right: 2px solid var(--font-alternative-color);
+    border-bottom: 2px solid var(--font-alternative-color);
+    padding: 4px 8px 12px 8px;
+    box-shadow: 2px 2px 4px black;
 
     /* DEBUG BORDERS */
-    border: 2px solid cyan;
+    /* border: 2px solid cyan; */
+}
+
+.content-card h3, .content-card h4, .content-card p {
+    /* Font and color declarations */
+    coloR: var(--background-color);
+}
+
+.card-title {
+    /* Display declarations */
+    align-self: end;
+    /* Font and color declarations */
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    /* CBPM */
+    border-bottom: 2px solid var(--background-color);
+}
+
+.card-author {
+    /* Font and color declarations */
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    /* CBPM */
+    padding-left: 8px;
+}
+
+.card-pagecount, .card-is-book-read {
+    /* Display declarations */
+    align-self: end;
+}
+
+.content-card-buttons-container {
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-delete-button, .card-is-read-button {
+    /* Font and color declarations */
+    background-color: var(--accent-color);
+    color: var(--background-color);
+
+    /* CBPM */
+    border-radius: 5px;
+    padding: 4px;
+    margin: 2px;
+}
+
+.card-delete-button:hover, .card-is-read-button:hover {
+    /* Font and color declarations */
+    background-color: var(--accent-highlight-color);
+}
+
+
+
+/* FOOTER   F   F   F   F   F   F   F   F   F       F   F   F   F   F*/
+.footer-container{
+    /* Display declarations */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Font and color declarations */
+    background-color: var(--font-alternative-color);
+}
+
+.footer-container p {
+    /* Font and color declarations */
+    color: var(--background-color);
 }
