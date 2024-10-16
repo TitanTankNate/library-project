@@ -41,7 +41,7 @@ Book.prototype.deleteBookFromLibrary = function() {
 
 
 // EVENT HANDLERS
-let addBookButton = document.querySelector(".add-book-button");
+const addBookButton = document.querySelector(".add-book-button");
 addBookButton.addEventListener("click", () => {
     // addBookToLibrary();
 
@@ -50,7 +50,7 @@ addBookButton.addEventListener("click", () => {
     dialogBox.showModal();
 });
 
-let dialogConfirmButton = document.getElementById("dialog-confirm");
+const dialogConfirmButton = document.getElementById("dialog-confirm");
 dialogConfirmButton.addEventListener("click", () => {
     addBookToLibrary();
 });
@@ -85,7 +85,7 @@ function addBookToLibrary() {
     let newBook = new Book(counter, titleInput.value, 
         authorInput.value, 
         pageCountInput.value, 
-        isReadInput.value, 
+        isReadInput.checked, 
         false);  
     
     // Push changes to the array
@@ -139,6 +139,11 @@ function updateBookCards(index) {
         } else {
             newCardIsRead.textContent = "Incomplete";
         }
+        newCardIsRead.id = `is-read-${index}`;
+
+        // // Create card buttons div
+        let newCardButtonsDiv = document.createElement("div");
+        newCardButtonsDiv.classList.add("content-card-buttons-container");
 
         // // Create delete button
         let newCardDeleteButton = document.createElement("button");
@@ -151,13 +156,25 @@ function updateBookCards(index) {
             confirmDeletion(newCardDeleteButton.dataset.id);
         });
 
+        // // Create "mark as read" button
+        let newCardIsReadButton = document.createElement("button");
+        newCardIsReadButton.classList.add("card-is-read-button");
+        newCardIsReadButton.textContent = "Mark As Read";
+
+        // // // Add "mark as read" button event listening
+        newCardIsReadButton.addEventListener("click", () => {
+            markBookAsRead(index);
+        });
+
         // Append new elements
         contentContainer.appendChild(newCardDiv);
         newCardDiv.appendChild(newCardTitle);
         newCardDiv.appendChild(newCardAuthor);
         newCardDiv.appendChild(newCardPages);
         newCardDiv.appendChild(newCardIsRead);
-        newCardDiv.appendChild(newCardDeleteButton);
+        newCardDiv.appendChild(newCardButtonsDiv);
+        newCardButtonsDiv.appendChild(newCardDeleteButton);
+        newCardButtonsDiv.appendChild(newCardIsReadButton);
 
         // Set flag to avoid card duplication
         userLibrary[index].isDisplayed = true;    
@@ -200,6 +217,26 @@ function deleteBook(id) {
     userLibrary.splice(id,1, null);
     console.log(userLibrary);
 };
+
+
+
+// FUNCTION: markBookAsRead
+// DESCRIPTION: This function toggles a partcular Book object's isRead
+// status between true ("Complete")/false ("Incomplete") states, and 
+// updates both the DOM and the userLibrary array.
+function markBookAsRead(id) {
+    // Select div to "repaint"
+    let readStatusToModify = document.getElementById(`is-read-${id}`);
+    
+    // Change array information and "repaint" div with updated status
+    if (userLibrary[id].isRead) {
+        userLibrary[id].isRead = false;
+        readStatusToModify.textContent = "Incomplete";
+    } else {
+        userLibrary[id].isRead = true;
+        readStatusToModify.textContent = "Complete";
+    };
+}
 
 
 // W R I T E   U P
