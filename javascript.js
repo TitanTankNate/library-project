@@ -239,7 +239,7 @@ function markBookAsRead(id) {
 }
 
 
-// W R I T E   U P
+// O R I G I N A L   W R I T E   U P
 
 // DESIRED BEHAVIOR
 // When user loads into page, a "default" template book should be 
@@ -250,8 +250,12 @@ function markBookAsRead(id) {
 // Each book card should have the title, in header format, author, in 
 // sub-header format, number of pages, and a checkbox for whether or 
 // not the book has been read.  There should also be a delete button 
-// to allow the user to delete thebook.
+// to allow the user to delete the book.
 
 // DISPLAYING BOOK CARDS
 // The books should all display in card format with the elements listed
 // above.
+
+// DIALOGS
+// Dialogs sould be used to allow data entry for adding books to the
+// page, and for confirming deletion of books from the page.
