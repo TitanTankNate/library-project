@@ -328,6 +328,8 @@
 .card-title {
     /* Display declarations */
     align-self: end;
+    overflow: hidden;
+
     /* Font and color declarations */
     font-size: 1.3rem;
     font-weight: 600;
@@ -388,4 +390,125 @@
 .footer-container p {
     /* Font and color declarations */
     color: var(--background-color);
+}
+
+
+
+/* BOOK INFO DIALOG BID BID BID BID BID BID BID BID BID BID BID BID  */
+#book-info-dialog {
+    /* Transforms and constraints */
+    height: 300px;
+    width: 300px;
+
+    /* CBPM */
+    border-radius: 12px;
+}
+
+#dialog-form {
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+}
+
+#dialog-form input {
+    /* Font and color declarations */
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--font-alternative-color);
+
+    /* CBPM */
+    border-radius: 5px;
+    padding: 2px 4px;
+}
+
+#dialog-form input:focus {
+    /* Font and color declarations */
+    color: var(--font-default-color);
+    outline-color: var(--accent-highlight-color);
+}
+
+#pagecount-number {
+    /* Transforms and constraints */
+    width: 64px;
+}
+
+.form-body {
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-body label {
+    /* CBPM */
+    padding-top: 12px;
+}
+
+.dialog-buttons {
+    /* Display declarations */
+    align-self: end;
+
+    /* CBPM */
+    padding-top: 12px;
+}
+
+.dialog-button {
+    /* Font and color declarations */
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    
+    /* Transforms and constraints */
+    width: 80px;
+
+    /* CBPM */
+    border-radius: 5px;
+}
+
+.dialog-button:hover {
+    /* Font and color declarations */
+    background-color: var(--accent-highlight-color);
+}
+
+#is-read-checkbox {
+    /* Display declarations */
+    align-self: start;
+}
+
+
+
+/* DELETE BOOK DIALOG   DBD DBD DBD DBD DBD DBD DBD DBD DBD DBD DBD  */
+#delete-confirmation-dialog[open] {
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+
+    /* Transforms and constraints */
+    width: 300px;
+}
+
+#delete-confirmation-dialog p {
+    /* Font and color declarations */
+    color: black;
+}
+
+#book-to-be-deleted {
+    /* Font and color declarations */
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+#delete-confirmation-dialog .dialog-buttons {
+    /* Display declarations */
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    align-items: end;
+}
+
+#delete-confirmation-dialog .dialog-button {
+    /* Transforms and constraints */
+    height: 40px;
+    width: 100px;
 }

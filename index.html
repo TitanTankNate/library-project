@@ -57,6 +57,7 @@
     <!-- Modal Dialog Box for user input-->
     <dialog id="book-info-dialog">
         <form id = "dialog-form" action="" method="dialog">
+            <h2>Add Book to Library</h2>
             <div class="form-body">
                 <!--Title-->
                 <label for="title-text">Title</label>
@@ -83,13 +84,14 @@
 
     <!-- Confirmation modal dialog for deleting books-->
     <dialog id="delete-confirmation-dialog">
+        <h3>Delete Book?</h3>
         <p class="confirmation-message">
             Delete <span id="book-to-be-deleted">Book Title</span> from your library?
             This action cannot be undone.
         </p>
         <div class="dialog-buttons">
-            <button class="dialog-button" id="dialog-delete-cancel">Nah</button>
-            <button class="dialog-button" id="dialog-delete-confirm">Ban It to the Shadow Realm</button>
+            <button class="dialog-button" id="dialog-delete-cancel">Cancel</button>
+            <button class="dialog-button" id="dialog-delete-confirm">Delete</button>
         </div>
     </dialog>
 </body>
